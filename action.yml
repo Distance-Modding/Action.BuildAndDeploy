@@ -1,8 +1,8 @@
 name: Build solution and Publish Artifacts
 description: Builds a msbuild solution and deploys a github release using settings found in a .env file
 branding:
-  icon: send
-  color: green
+  icon: terminal
+  color: red
 runs:
   using: 'composite'
   steps:
