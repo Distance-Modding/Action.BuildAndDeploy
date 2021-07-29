@@ -1,5 +1,5 @@
-name: Build and Deploy MSBuild solution (.env)
-description: Builds and deploys a github release using settings found in a .env file
+name: Build solution and Publish Artifacts
+description: Builds a msbuild solution and deploys a github release using settings found in a .env file
 branding:
   icon: send
   color: green
