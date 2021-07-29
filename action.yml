@@ -1,0 +1,25 @@
+name: Build and Deploy MSBuild solution (.env)
+description: Builds and deploys a github release using settings found in a .env file
+branding:
+  icon: send
+  color: green
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: DotEnv
+      uses: xom9ikk/dotenv@v1.0.2
+      with:
+        path: "${{ github.workspace }}"
+    - name: Build Solution
+      uses: distance-modding/action.slnbuilder@v2.0.0
+      with:
+        solution-file: "${{ env.SOLUTION }}"
+    - name: Publish New Release
+      uses: distance-modding/actions.publishrelease@v1.0.0
+      with:
+        artifacts: "${{ env.ARTIFACTS }}"
+        release-body: "${{ env.RELEASE_BODY }}"
